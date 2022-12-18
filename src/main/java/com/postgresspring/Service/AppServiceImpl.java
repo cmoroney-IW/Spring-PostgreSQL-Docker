@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @Service
-public class AppServiceImpl {
+public class AppServiceImpl implements AppService {
 
     AppRepository appRepository;
 
