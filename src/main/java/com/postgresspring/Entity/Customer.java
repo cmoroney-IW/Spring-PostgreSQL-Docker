@@ -1,4 +1,4 @@
-package com.postgresspring;
+package com.postgresspring.Entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +8,8 @@ import javax.persistence.Table;
 
 import lombok.*;
 
+@RequiredArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -18,20 +20,12 @@ public class Customer {
     @GeneratedValue
     private long id;
 
+    @NonNull
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
+    @NonNull
     @Column(name = "last_name", nullable = false)
     private String lastName;
-
-    public Customer() {
-
-    }
-
-    public Customer(Long id, String firstName, String lastName) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
 
 }

@@ -1,6 +1,11 @@
-package com.postgresspring;
+package com.postgresspring.Service;
+
+import java.util.List;
 
 import org.springframework.stereotype.Service;
+
+import com.postgresspring.Entity.Customer;
+import com.postgresspring.Repository.CustomerRepository;
 
 import lombok.AllArgsConstructor;
 
@@ -8,21 +13,15 @@ import lombok.AllArgsConstructor;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
-    CustomerRepository customerRepository;
+    private CustomerRepository customerRepository;
 
     @Override
-    public Customer getCustomer(Long id) {
-        return customerRepository.findById(id).get();
+    public List<Customer> getCustomers() {
+        return customerRepository.findAll();
     }
 
     @Override
     public Customer saveCustomer(Customer customer) {
         return customerRepository.save(customer);
     }
-
-    @Override
-    public void deleteCustomer(Long id) {
-        customerRepository.deleteById(id);
-    }
-
 }
